@@ -38,3 +38,6 @@ A simple libraries that force user to scroll to presetted points
   Replace "forceScroll();" with "forceScroll("[sizes]", false);"<br>
   Instead of "[sizes]" write select sizes sapareted by space (es. "xd lg xl")
 </p>
+<br>
+<br>
+<p><b>Working sample can be found on https://codepen.io/BenjaNapo/pen/QYNBKa</b></p>
