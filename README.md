@@ -10,7 +10,7 @@ A simple libraries to force user to scroll to presetted points
   <li>Place point where you want the page scroll adding class "scroll-point" in the tag</li>
 </ol>
 <h2>Other way to initialize</h2>
-<h3>Make unable on touch devices</h3>
+<h3>Make it active in all devices but not in those that use the touch</h3>
 <p>Replace "forceScroll();" with "forceScroll(false);"</p>
 <h3>Make able on devices with ceartain sizes</h3>
 <p>
@@ -25,7 +25,7 @@ A simple libraries to force user to scroll to presetted points
   Replace "forceScroll();" with "forceScroll("[sizes]");"<br>
   Instead of "[sizes]" write select sizes sapareted by space (es. "xd lg xl")
 </p>
-<h3>Make able on devices with ceartain sizes but not with touch</h3>
+<h3>Make able on devices with ceartain sizes but not in those that use the touch</h3>
 <p>
   Select devices where you want this script will work (based on width size):
   <ul> 
