@@ -39,7 +39,8 @@ window.forceScroll = function(x, y){
     if(typeof y == "boolean"){
       if(y == true)
         scrollTouchable();
-    }
+    } else if (y == undefined)
+      scrollTouchable();
   }
 };
 
@@ -78,7 +79,7 @@ function handle(delta) {
 	try {
 		var finalPosition = nextFocus.position().top + nextFocus.outerHeight()/2 - $(window).height()/2;
 	} catch(ex){}
-  
+
 	if(finalPosition != "undefined" && finalPosition<$( document ).height())
 		$('html, body').stop().animate({
 		scrollTop: finalPosition - deltaNav
