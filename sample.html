@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>forcescroll.js</title>
+	<style type="text/css">
+		div {
+			height: 100vh;
+			text-align: center;
+			width: 100%;
+		}
+		.red {
+			background-color: red;
+		}
+		.blue {
+			background-color: blue;
+		}
+		.green {
+			background-color: green;
+		}
+		.yellow {
+			background-color: yellow;
+		}
+		.orange {
+			background-color: orange;
+		}
+	</style>
+</head>
+<body>
+	<div class="green scroll-point">
+		<h1>Screen 3</h1>
+	</div>
+	<div class="yellow scroll-point">
+		<h1>Screen 4</h1>
+	</div>
+	<div class="orange scroll-point">
+		<h1>Screen 5</h1>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" ></script>
+	<script type="text/javascript" src="forcescroll.js"></script>
+	<script type="text/javascript">
+		forceScroll("lg xl", false);
+	</script>
+</body>
+</html>

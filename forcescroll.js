@@ -73,7 +73,7 @@ function handle(delta) {
 	var nextFocus = $(".scroll-point:eq("+nextPosition+")");
   var deltaNav = 0;
 
-  if($("nav") != undefined)
+  if($("#myDiv").length)
     deltaNav = $("nav").height();
 
 	try {
