@@ -80,11 +80,12 @@ function handle(delta) {
 		var finalPosition = nextFocus.position().top + nextFocus.outerHeight()/2 - $(window).height()/2;
 	} catch(ex){}
 
-	if(finalPosition != "undefined" && finalPosition<$( document ).height())
+	if(finalPosition != "undefined" && finalPosition<$( document ).height()){
 		$('html, body').stop().animate({
 		scrollTop: finalPosition - deltaNav
 		}, time);
-	else if(finalPosition != "undefined")
+    console.log(actualPosition + " " + nextPosition);
+	}else if(finalPosition != "undefined")
 		$('html, body').stop().animate({
 		scrollTop: $( document ).height() - $( window ).height() 
 		}, time);
@@ -92,45 +93,19 @@ function handle(delta) {
 
 function converter(x) {
 	var positions = new Array();
+  var lastHeight = -1;
+  var ret = 0;
+  var c = 0;
 	$(".scroll-point").each(function (e) {
-		positions.push($(this).offset().top);
+		var actHeight = $(this).offset().top;
+    var actDelta = Math.abs(x - actHeight);
+    var lastDelta = Math.abs(x - lastHeight);
+    if(actDelta < lastDelta)
+      ret = c;
+    c++;
+    lastHeight = actHeight;
 	});
-	return positions.binarySearch(x,intLessThan);
-}
-
-Array.prototype.binarySearch = function(find, comparator) {
-  var low = 0, high = this.length - 1, i, comparison, prev_comparison;  
-  while (low <= high) {
-    i = Math.floor((low + high) / 2);
-    comparison = comparator(this[i], find);
-    prev_comparison = comparison
-    if (comparison < 0) { low = i + 1; continue; };
-    if (comparison > 0) { high = i - 1; continue; };
-    return i;
-  }
-  if (prev_comparison < 0) {
-      var option_low = i;
-      var option_high = i+1;
-  } else {
-      var option_low = i-1;
-      var option_high = i;
-  }
-  var dist_a = find - this[option_low];
-  var dist_b = this[option_high] - find;
-  if (dist_a < dist_b) {
-      return option_low;
-  } else {
-      return option_high;
-  }
-  return null;
-};
-
-intLessThan = function(a,b) {
-    if (a < b) {
-        return -1;
-    } else if (a > b) {
-        return 1;
-    } else {
-        return 0;
-    }
+  if(Math.abs($( document ).height() - $( window ).height() - x)<50)
+    ret = c;
+	return ret;
 }
