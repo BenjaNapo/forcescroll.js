@@ -1,5 +1,5 @@
 # Forcescroll.js
-A simple libraries to force user to scroll to presetted points
+A simple libraries that force user to scroll to presetted points
 <h2>Setup</h2>
 <ol>
   <li>Download this repository</li>
